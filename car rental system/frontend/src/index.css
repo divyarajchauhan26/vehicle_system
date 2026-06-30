@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  --color-primary: #3D7EFF;
+  --color-primary-hover: #2B61D1;
+  
+  --color-accent: #10B981;
+  --color-accent-hover: #059669;
+  
+  --color-danger: #EF4444;
+  --color-warning: #F59E0B;
+  
+  --color-bg-dark: #0A0F1E;
+  --color-card-dark: #111827;
+  --color-border-dark: #1F2937;
+  
+  --color-text-main: #F9FAFB;
+  --color-text-muted: #9CA3AF;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  
+  body {
+    @apply bg-[var(--color-bg-dark)] text-[var(--color-text-main)] font-sans antialiased;
+    margin: 0;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl;
+  }
+  
+  .btn-primary {
+    @apply px-4 py-2 bg-[var(--color-primary)] text-white rounded-lg font-medium tracking-wide transition-all hover:bg-[var(--color-primary-hover)] hover:shadow-lg hover:shadow-blue-500/20 active:scale-95;
+  }
+  
+  .btn-outline {
+    @apply px-4 py-2 bg-transparent border border-white/20 text-white rounded-lg font-medium tracking-wide transition-all hover:bg-white/10 active:scale-95;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-2 bg-[var(--color-card-dark)] border border-[var(--color-border-dark)] rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent transition-all;
+  }
+  
+  .badge-available {
+    @apply px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20;
+  }
+  
+  .badge-rented {
+    @apply px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20;
+  }
+}
